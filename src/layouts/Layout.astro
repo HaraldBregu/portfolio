@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Harald Bregu — Senior Lead Developer building scalable, cross-platform applications.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+
+    <style is:global>
+      html {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      body {
+        background: #ffffff;
+        color: #000000;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 17px;
+        line-height: 1.6;
+        max-width: 30em;
+        margin: 3rem auto;
+        padding: 0 1.25rem;
+      }
+
+      a {
+        color: #0000ee;
+      }
+
+      a:visited {
+        color: #551a8b;
+      }
+    </style>
+  </body>
+</html>
