@@ -1,0 +1,217 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { posts } from "../../data/posts";
+
+const post = posts.find(
+  (item) => item.slug === "will-artificial-intelligence-replace-software-developers",
+);
+
+if (!post) {
+  throw new Error("Post metadata not found.");
+}
+---
+
+<Layout
+  title={`${post.title} - Harald Bregu`}
+  description={post.excerpt}
+  url={`https://haraldbregu.com${post.href}`}
+  ogType="article"
+>
+  <main>
+    <header class="site">
+      <div class="top">
+        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
+        <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
+        <span>{post.when}</span>
+      </div>
+
+      <div class="id-row">
+        <div class="id">
+          <p class="eyebrow">article</p>
+          <h1 class="article-title">{post.title}</h1>
+          <div class="role">
+            <time datetime={post.isoDate}>{post.date}</time>
+            <span class="pipe">/</span>
+            <span>{post.read}</span>
+          </div>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button data-set-theme="light" aria-pressed="true">light</button>
+            <button data-set-theme="dark" aria-pressed="false">dark</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div><a href="/posts/">all posts</a></div>
+          <div class="where"><a href="/">portfolio</a> / ai</div>
+        </div>
+      </div>
+    </header>
+
+    <article class="post">
+      <p class="subtitle">L'Intelligenza Artificiale sostituira gli sviluppatori software?</p>
+
+      <p>My reasoning is simple:</p>
+
+      <p>
+        The standardization introduced by us developers in software development will
+        inevitably lead to a decrease in our utility. This is because we are
+        attributing less and less value to creativity and placing more importance on
+        rules and design guidelines.
+      </p>
+
+      <p>
+        Today, we develop more structured software, following defined architectures
+        and separating various layers independently. This approach allows for the
+        generation of components even without the help of artificial intelligence,
+        such as boilerplates.
+      </p>
+
+      <p>
+        In the past, however, many relied on creativity to solve software problems.
+        Nobody asked what architecture you were using or which design pattern you
+        were implementing to solve a specific problem. Now we no longer need it: the
+        standardized solution is already ready, dictated by the developer community,
+        which in turn responds to market demands.
+      </p>
+
+      <p>
+        The demand for more performant, scalable, and easily modifiable software has
+        inevitably led to standardization. I am not saying that there will no longer
+        be a need for software developers in the future. After all, carpenters still
+        exist today, even though most of us buy furniture from Ikea. What I predict
+        is that the demand for developers will not grow infinitely; it will reach a
+        peak, then stabilize or even decrease to minimal levels.
+      </p>
+
+      <p>
+        It is a dynamic similar to that experienced by mechanics: today they continue
+        to repair cars, but they no longer build them, as production is now
+        completely automated.
+      </p>
+
+      <p>
+        My prediction is that the future of software development will increasingly be
+        dominated by two complementary professional figures: AI Managers and
+        technical experts who design and refine intelligent tools.
+      </p>
+
+      <p>
+        On one hand, AI Managers will be essential. These professionals will not only
+        be simple tool users but true orchestrators capable of leveraging the
+        potential of artificial intelligence to accelerate software development and
+        improve its quality.
+      </p>
+
+      <p>
+        Their competence will not be strictly technical: they will need to combine a
+        solid understanding of tool capabilities with managerial and strategic skills
+        to ensure that the developed solutions perfectly meet business needs. In
+        other words, they will translate business requirements into concrete
+        technological solutions, using AI tools to maximize efficiency and
+        innovation.
+      </p>
+
+      <p>
+        On the other hand, there will be a growing demand for highly specialized
+        technical figures, such as data scientists and machine learning engineers,
+        who will be responsible for creating, optimizing, and maintaining these
+        intelligent tools.
+      </p>
+
+      <p>
+        These professionals will be the driving force behind artificial intelligence,
+        developing increasingly advanced models, ensuring data quality, and
+        guaranteeing that solutions are reliable, scalable, and adaptable to
+        increasingly complex contexts. Their ability to innovate will be essential to
+        keep technological evolution aligned with the needs of a constantly changing
+        market.
+      </p>
+
+      <p>
+        In summary, the future will see a balance between those who develop
+        intelligent tools and those who use them strategically. This scenario will
+        not only change the way software is created but will also redefine the skills
+        required in the technology sector.
+      </p>
+
+      <div class="post-tags" aria-label="Post tags">
+        {post.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </article>
+
+    <footer class="site">
+      <div>© 2026 harald bregu</div>
+      <div class="links">
+        <a href="/posts/">posts</a>
+        <a href="/">home</a>
+        <a href="/#contact">contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <style>
+    .top a.mark {
+      border-bottom: 0;
+    }
+
+    .eyebrow {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      color: var(--fg);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.16;
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .post {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .post p {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+
+    .post .subtitle {
+      color: var(--fg-mute);
+      font-size: 13px;
+    }
+
+    .post-tags {
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+      padding-top: 16px;
+    }
+
+    .post-tags span {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      padding: 2px 7px;
+    }
+
+    @media (max-width: 520px) {
+      .article-title {
+        font-size: 26px;
+        max-width: none;
+      }
+    }
+  </style>
+</Layout>

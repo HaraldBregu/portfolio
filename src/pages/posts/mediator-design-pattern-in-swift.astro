@@ -1,0 +1,259 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { posts } from "../../data/posts";
+
+const post = posts.find((item) => item.slug === "mediator-design-pattern-in-swift");
+
+if (!post) {
+  throw new Error("Post metadata not found.");
+}
+
+const mediatorCode = String.raw`class Person {
+    var name: String
+
+    init(name: String) {
+        self.name = name
+    }
+}
+
+protocol Mediation {
+    func completeTransaction(seller: Seller)
+}
+
+class PersonMediator: Person, Mediation {
+    private var counterParts = [Person]()
+
+    var offer: Double = 0.0
+    var acceptedOffer: Bool = false
+
+    func register(counterpart: Person) {
+        counterParts.append(counterpart)
+    }
+
+    func completeTransaction(seller: Seller) {
+        print(seller.message)
+    }
+}
+
+class CounterPart: Person {
+    var mediator: PersonMediator
+
+    init(name: String, mediator: PersonMediator) {
+        self.mediator = mediator
+        super.init(name: name)
+    }
+}
+
+class Buyer: CounterPart {
+    override init(name: String, mediator: PersonMediator) {
+        super.init(name: name, mediator: mediator)
+    }
+
+    func sendOffer(_ offer: Double) {
+        print("I am sending an offer of \(offer) dollars")
+        mediator.offer = offer
+    }
+}
+
+class Seller: CounterPart {
+    override init(name: String, mediator: PersonMediator) {
+        super.init(name: name, mediator: mediator)
+    }
+
+    var message: String {
+        if mediator.offer > 190_000 {
+            return "I will accept your offer of \(mediator.offer) dollars"
+        }
+        return "I will not accept your offer of \(mediator.offer) dollars"
+    }
+}
+
+var mediator = PersonMediator(name: "Agent Smith")
+
+var buyer = Buyer(name: "Marina Mitchell", mediator: mediator)
+mediator.register(counterpart: buyer)
+
+var seller = Seller(name: "Dillan Grimes", mediator: mediator)
+mediator.register(counterpart: seller)
+
+buyer.sendOffer(100_000)
+
+mediator.completeTransaction(seller: seller)
+
+buyer.sendOffer(200_000)
+
+mediator.completeTransaction(seller: seller)`;
+---
+
+<Layout
+  title={`${post.title} - Harald Bregu`}
+  description={post.excerpt}
+  url={`https://haraldbregu.com${post.href}`}
+  ogType="article"
+>
+  <main>
+    <header class="site">
+      <div class="top">
+        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
+        <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
+        <span>{post.when}</span>
+      </div>
+
+      <div class="id-row">
+        <div class="id">
+          <p class="eyebrow">article</p>
+          <h1 class="article-title">{post.title}</h1>
+          <div class="role">
+            <time datetime={post.isoDate}>{post.date}</time>
+            <span class="pipe">/</span>
+            <span>{post.read}</span>
+          </div>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button data-set-theme="light" aria-pressed="true">light</button>
+            <button data-set-theme="dark" aria-pressed="false">dark</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div><a href="/posts/">all posts</a></div>
+          <div class="where"><a href="/">portfolio</a> / design patterns</div>
+        </div>
+      </div>
+    </header>
+
+    <article class="post">
+      <p>
+        The Mediator design pattern is a behavioral pattern that allows objects to
+        communicate with each other through a mediator object instead of directly
+        interacting with each other.
+      </p>
+
+      <p>
+        Let's use the example of a real estate or car transaction to illustrate the
+        roles of the seller, buyer, and mediator agent.
+      </p>
+
+      <pre><code>{mediatorCode}</code></pre>
+
+      <p>
+        If you observe, the buyer and seller do not have a direct connection, but
+        instead are managed by the mediator. In this case, we have utilized two
+        design patterns: the Abstract Factory pattern to create counterparts and
+        agents, and the Mediator pattern to manage their interactions.
+      </p>
+
+      <p>
+        If you are interested in learning more about design patterns in Swift, you
+        can check out my GitHub repository, where I have provided examples and
+        explanations of various design patterns:
+        <a href="https://github.com/HaraldBregu" target="_blank" rel="noopener noreferrer">
+          github.com/HaraldBregu
+        </a>
+      </p>
+
+      <div class="post-tags" aria-label="Post tags">
+        {post.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </article>
+
+    <footer class="site">
+      <div>© 2026 harald bregu</div>
+      <div class="links">
+        <a href="/posts/">posts</a>
+        <a href="/">home</a>
+        <a href="/#contact">contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <style>
+    .top a.mark {
+      border-bottom: 0;
+    }
+
+    .eyebrow {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      color: var(--fg);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.16;
+      margin: 0;
+      max-width: 20ch;
+    }
+
+    .post {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .post p {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+
+    .post code {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg);
+      font: inherit;
+      font-size: 13px;
+      padding: 1px 4px;
+    }
+
+    .post pre {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      color: var(--fg);
+      font-size: 12px;
+      line-height: 1.65;
+      margin: 18px 0 24px;
+      overflow-x: auto;
+      padding: 16px;
+    }
+
+    .post pre code {
+      background: transparent;
+      border: 0;
+      display: block;
+      min-width: max-content;
+      padding: 0;
+    }
+
+    .post-tags {
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+      padding-top: 16px;
+    }
+
+    .post-tags span {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      padding: 2px 7px;
+    }
+
+    @media (max-width: 520px) {
+      .article-title {
+        font-size: 26px;
+        max-width: none;
+      }
+    }
+  </style>
+</Layout>

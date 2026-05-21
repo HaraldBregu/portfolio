@@ -1,0 +1,279 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { posts } from "../../data/posts";
+
+const post = posts.find(
+  (item) => item.slug === "strong-and-weak-references-in-swift",
+);
+
+if (!post) {
+  throw new Error("Post metadata not found.");
+}
+
+const accountCode = String.raw`class Account {
+    let name: String
+
+    init(name: String) {
+        self.name = name
+    }
+
+    deinit {
+        print("\(name) account has been deallocated")
+    }
+}`;
+
+const strongReferenceCode = String.raw`class Manager {
+    let name: String
+    var account: Account?
+
+    init(name: String, account: Account?) {
+        self.name = name
+        self.account = account
+    }
+
+    deinit {
+        print("\(name) has been deallocated")
+    }
+}
+
+var manager: Manager? = Manager(name: "John", account: nil)
+var accountManager: Account? = Account(name: "John")
+manager?.account = accountManager
+
+accountManager = nil
+
+if let name = manager?.account?.name {
+    print(name)
+}`;
+
+const weakReferenceCode = String.raw`class Employee {
+    var name: String
+    weak var account: Account?
+
+    init(name: String, account: Account?) {
+        self.name = name
+        self.account = account
+    }
+
+    deinit {
+        print("\(name) has been deallocated")
+    }
+}
+
+var employee: Employee? = Employee(name: "Patrick", account: nil)
+var employeeAccount: Account? = Account(name: "Patrick")
+employee?.account = employeeAccount
+
+employeeAccount = nil
+
+if let name = employee?.account?.name {
+    print(name)
+}`;
+---
+
+<Layout
+  title={`${post.title} - Harald Bregu`}
+  description={post.excerpt}
+  url={`https://haraldbregu.com${post.href}`}
+  ogType="article"
+>
+  <main>
+    <header class="site">
+      <div class="top">
+        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
+        <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
+        <span>{post.when}</span>
+      </div>
+
+      <div class="id-row">
+        <div class="id">
+          <p class="eyebrow">article</p>
+          <h1 class="article-title">{post.title}</h1>
+          <div class="role">
+            <time datetime={post.isoDate}>{post.date}</time>
+            <span class="pipe">/</span>
+            <span>{post.read}</span>
+          </div>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button data-set-theme="light" aria-pressed="true">light</button>
+            <button data-set-theme="dark" aria-pressed="false">dark</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div><a href="/posts/">all posts</a></div>
+          <div class="where"><a href="/">portfolio</a> / swift</div>
+        </div>
+      </div>
+    </header>
+
+    <article class="post">
+      <p>
+        Have you heard of strong and weak references? They're two different types of
+        references in Swift that can impact how your objects are deallocated when
+        they're no longer in use.
+      </p>
+
+      <p>
+        In this article, we'll go over two code examples to show you exactly how
+        they work. One example will use strong references, while the other will use
+        weak references.
+      </p>
+
+      <p>Let's create a <code>Account</code> class to use later in the examples:</p>
+
+      <pre><code>{accountCode}</code></pre>
+
+      <h2>Strong References</h2>
+
+      <pre><code>{strongReferenceCode}</code></pre>
+
+      <p>
+        Here's the important part: even if we set <code>accountManager</code> to
+        <code>nil</code>, the <code>Account</code> instance still exists in memory
+        because <code>Manager</code> is still holding a strong reference to it. This
+        means the <code>Account</code> instance won't be deallocated until all of its
+        strong references are removed.
+      </p>
+
+      <h2>Weak References</h2>
+
+      <pre><code>{weakReferenceCode}</code></pre>
+
+      <p>
+        In the code example using a weak reference to <code>account</code>, when we
+        set <code>employeeAccount</code> to <code>nil</code>, the reference to
+        <code>account</code> from the <code>Employee</code> instance becomes
+        <code>nil</code> and the account is deallocated.
+      </p>
+
+      <p>
+        By using strong and weak references correctly, you can ensure that your Swift
+        code is both efficient and safe, and avoid common pitfalls that can lead to
+        memory leaks and other issues. I hope this article has helped you gain a
+        better understanding of strong and weak references in Swift, and that you
+        feel more confident using them in your own projects.
+      </p>
+
+      <p>Happy coding.</p>
+
+      <p>
+        Check my GitHub repos about design patterns with Swift:
+        <a href="https://github.com/HaraldBregu" target="_blank" rel="noopener noreferrer">
+          github.com/HaraldBregu
+        </a>
+      </p>
+
+      <div class="post-tags" aria-label="Post tags">
+        {post.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </article>
+
+    <footer class="site">
+      <div>© 2026 harald bregu</div>
+      <div class="links">
+        <a href="/posts/">posts</a>
+        <a href="/">home</a>
+        <a href="/#contact">contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <style>
+    .top a.mark {
+      border-bottom: 0;
+    }
+
+    .eyebrow {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      color: var(--fg);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.16;
+      margin: 0;
+      max-width: 18ch;
+    }
+
+    .post {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .post p {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+
+    .post h2 {
+      color: var(--fg);
+      font-size: 16px;
+      font-weight: 500;
+      margin: 38px 0 14px;
+    }
+
+    .post code {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg);
+      font: inherit;
+      font-size: 13px;
+      padding: 1px 4px;
+    }
+
+    .post pre {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      color: var(--fg);
+      font-size: 12px;
+      line-height: 1.65;
+      margin: 18px 0 24px;
+      overflow-x: auto;
+      padding: 16px;
+    }
+
+    .post pre code {
+      background: transparent;
+      border: 0;
+      display: block;
+      min-width: max-content;
+      padding: 0;
+    }
+
+    .post-tags {
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+      padding-top: 16px;
+    }
+
+    .post-tags span {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      padding: 2px 7px;
+    }
+
+    @media (max-width: 520px) {
+      .article-title {
+        font-size: 26px;
+        max-width: none;
+      }
+    }
+  </style>
+</Layout>

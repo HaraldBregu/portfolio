@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { posts } from "../data/posts";
 
 const profile = {
   name: "Harald Bregu",
@@ -251,15 +252,6 @@ const services = [
   },
 ];
 
-const posts = [
-  {
-    when: "2026",
-    title: "blog content status",
-    href: "#contact",
-    read: "helpers exist, but no mdx posts were found in the exported checkout.",
-    aside: "empty",
-  },
-];
 ---
 
 <Layout title="Harald Bregu — Portfolio" description={profile.description}>
@@ -378,7 +370,7 @@ const posts = [
               <div class="when">{post.when}</div>
               <div class="what">
                 <a class="title" href={post.href}>{post.title}</a>
-                <span class="read">{post.read}</span>
+                <span class="read">{post.read} · {post.date}</span>
               </div>
               <div class="aside">{post.aside}</div>
             </div>
@@ -412,7 +404,7 @@ const posts = [
         <a href="#work">activities</a>
         <a href="#projects">projects</a>
         <a href="#services">services</a>
-        <a href="#writing">posts</a>
+        <a href="/posts/">posts</a>
         <a href="#contact">contact</a>
       </div>
     </footer>
