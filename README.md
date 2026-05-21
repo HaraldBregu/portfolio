@@ -4,13 +4,13 @@ Personal portfolio for Harald Bregu, built with Astro.
 
 ## Overview
 
-This site presents profile information, skills, professional activities, projects, services, GitHub activity styling, and contact links in a compact terminal-inspired layout.
+This site presents profile information, skills, professional activities, projects, services, posts, and contact links in a compact terminal-inspired layout.
 
 ## Tech
 
 - Astro
 - JetBrains Mono via Google Fonts
-- Plain CSS and small inline scripts for theme switching and the contribution heatmap
+- Plain CSS and a small inline script for theme switching
 
 ## Local Development
 
