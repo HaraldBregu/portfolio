@@ -1,131 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const work = [
-  {
-    role: "Senior Lead Developer",
-    company: "Criterion",
-    dates: "January 2025 — Present",
-    description:
-      "As a Senior Lead Developer at Criterion, I contributed to building a scalable, robust, and cross-platform desktop application text editor for critical text editions. My role involved leading the development team in architecting and implementing advanced features for the text editor, ensuring high performance and reliability across different platforms. I focused on creating a user-friendly interface while maintaining the technical complexity required for critical text editing tasks. This project allowed me to demonstrate my expertise in cross-platform development, my leadership skills in guiding development teams, and my ability to deliver robust solutions for demanding text editing requirements.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "Repower",
-    dates: "June 2024 — Present",
-    description:
-      "As a frontend developer at Repower, I contributed to the development of an Angular-based Content Management System (CMS) within an agile team environment. My primary responsibilities included creating reusable components and modules to enhance the functionality and flexibility of the CMS. I focused on customizing the existing application to meet specific project requirements and improve overall user experience. Working collaboratively with the agile team, I participated in regular sprints, contributing to continuous improvement of the CMS. This project allowed me to demonstrate my expertise in Angular development, my ability to work effectively in an agile environment, and my skills in creating scalable and maintainable code for complex web applications.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "CSI",
-    dates: "October 2023 — May 2024",
-    description:
-      "As a Team Leader in Frontend Development at Gruppo Scai (CSI) in Milan, I led the modernization efforts for an Angular-based application, focusing on optimizing the frontend architecture to significantly enhance system responsiveness and user experience. My key contributions included integrating NgRX for advanced state management, which aligned the project with the latest Angular standards and ensured future maintainability and scalability. Working closely with backend teams and product managers, I facilitated seamless integration between frontend and backend functionalities. This collaborative approach resulted in improved overall system performance and increased user satisfaction. My leadership in this project showcased my ability to drive technical innovation, manage cross-functional teams, and deliver high-quality solutions that meet both user needs and industry standards.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "Keytech",
-    dates: "March 2023 — September 2023",
-    description:
-      "As a Senior Frontend Developer at Gruppo Scai (Keytech) in Milan, I played a key role in architecting and implementing a sophisticated reservation management platform. Utilizing Angular 15+, I focused on creating a highly modular and scalable structure that would support future growth and adaptability. My responsibilities included developing reusable components and writing modular code, which significantly streamlined the process of updating and adding new features to the platform. Working closely with the UX team, I contributed to delivering an optimal user experience, ensuring that the platform was not only functionally robust but also intuitive and user-friendly. This project showcased my expertise in advanced Angular development, my ability to create scalable solutions, and my skills in collaborative teamwork to achieve a high-quality end product.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "Azimut Holding",
-    dates: "March 2022 — February 2023",
-    description:
-      "As a frontend developer at Azimut Holding in Milan, I contributed to the development of an internal ReactJS app tool for managing file transfer flows between clients. Working within a 6-person team, I utilized Firebird databases and Perl programming language to create an efficient system. My responsibilities included crafting shell scripts to address internal file management needs and data manipulation requirements, significantly improving the tool's functionality. I also managed data servers to ensure optimal performance, preventing crashes and maintaining ideal memory usage. Collaborating with team members from diverse backgrounds, I utilized Gmail for effective communication with clients and counterparts, providing excellent customer support. Through my contributions, I played a key role in streamlining critical file transfer processes, resulting in a more efficient workflow for the organization.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "Sinerpay",
-    dates: "February 2022",
-    description:
-      "As a web application developer for Sinerpay, I played a crucial role in architecting and developing this innovative financial platform from the ground up. Utilizing ReactJS and AWS, I created a robust and scalable web app designed to streamline payment collection processes. My responsibilities included implementing continuous integration and delivery, ensuring a smooth development workflow. I also managed the project holistically, starting from purchasing the domain name to successfully collecting payments from non-paying customers. This project showcased my ability to leverage cutting-edge technologies like ReactJS and AWS, as well as my skills in full-stack development and project management. My work on Sinerpay demonstrated my capacity to deliver a comprehensive financial solution, addressing real-world challenges in payment collection and management.",
-  },
-  {
-    role: "Senior Angular Developer",
-    company: "ENEL",
-    dates: "November 2021 — January 2022",
-    description:
-      "As a frontend developer at Enel Group in Milan, I contributed to a significant project within a 15-person team. My primary focus was developing a frontend web app using AngularJS 1.0 to manage internal workstations and facilitate booking, which became crucial during the Covid-19 pandemic. I was responsible for adding new features, fixing critical bugs, and initiating a major refactoring effort to upgrade the project to Angular 12+. Following the Waterfall methodology, I applied best practices in web app development to enhance functionality and performance. This project allowed me to showcase my skills in frontend development, particularly with Angular, while contributing to a valuable tool for a large company with thousands of offices. My work helped improve the management of internal workstations during challenging times, demonstrating my ability to deliver practical solutions in a corporate environment.",
-  },
-  {
-    role: "iOS Senior Developer",
-    company: "AXA",
-    dates: "April 2020 — October 2021",
-    description:
-      "As an iOS developer at MyAXA in Milan, I rejoined the agile team responsible for the AXA app, focusing on improving its overall performance. My key contributions included refactoring the existing codebase, creating innovative components, and proactively addressing bugs to enhance the user experience. Leveraging my technical expertise, I dove into the app's architecture, implementing improvements that significantly boosted its efficiency. Working collaboratively within the agile framework, I played a crucial role in driving the project's success by ensuring seamless functionality and introducing new features. This experience allowed me to showcase my skills in iOS development, particularly in Swift programming, while contributing to a major insurance company's digital presence.",
-  },
-  {
-    role: "iOS Senior Developer",
-    company: "Vimar",
-    dates: "September 2019 — March 2020",
-    description:
-      "As an iOS developer at Vimar, I contributed to the development of a cutting-edge home automation app. Working within a six-person team, I helped create an iOS configurator app for IoT device appliances using the VIPER architecture. My primary responsibility was crafting custom UI components from scratch and integrating them into the app's interface. We followed an agile methodology, allowing us to adapt quickly to changing project requirements and meet deadlines effectively. By leveraging my expertise in iOS development and collaborating closely with the team, I played a crucial role in delivering a high-quality, scalable app that exceeded client expectations and improved the configuration process for Vimar's IoT devices.",
-  },
-  {
-    role: "Fullstack Developer",
-    company: "CER Manager",
-    dates: "July 2019 — August 2019",
-    description: "",
-  },
-  {
-    role: "Fullstack Developer",
-    company: "AGS",
-    dates: "February 2019 — July 2019",
-    description:
-      "As a fullstack developer at AGS company factory, I contributed to multiple projects within a collaborative team environment. My key responsibilities included creating a dashboard for IoT hardware sensors using Angular, which enhanced data visualization and analysis capabilities. I also developed and maintained the Posthello project, which involved an Angular frontend, Java backend, and Android app, providing a seamless user experience. Additionally, I managed a machine learning app using Python, optimizing data analysis and improving prediction accuracy. Beyond development work, I mentored junior developers, preparing presentations and demos on effective use of online tools. I also provided valuable insights on utilizing external services to reduce app maintenance costs, demonstrating my ability to implement cost-effective solutions while driving project success.",
-  },
-  {
-    role: "Full Stack Developer",
-    company: "Sinergidea",
-    dates: "January 2019",
-    description:
-      "At Sinergidea, I contributed to two innovative internal projects as an iOS and web developer. For the QRCodeReader iOS app, I utilized Swift to create a user-friendly application for effortless QR code scanning. Additionally, I architected the SinerPay web app from the ground up, employing ReactJS and AWS for development. I implemented continuous integration and delivery, ensuring a smooth development process. This project involved purchasing the domain name and successfully collecting payments from non-paying customers. My work at Sinergidea showcased my versatility in developing for both iOS and web platforms, as well as my ability to manage projects end-to-end using cutting-edge technologies like Swift, ReactJS, and AWS.",
-  },
-  {
-    role: "iOS Senior Developer",
-    company: "AXA",
-    dates: "April 2018 — December 2018",
-    description:
-      "As an iOS developer for AXA, I contributed to the development of a mobile app for this large insurance company. Working within a 15-person team of developers, testers, and designers, I utilized Swift programming language to create the iOS version of the app. My responsibilities included merging old and new developments, building new components and libraries, and implementing MVVM and MVC architecture and design patterns. I actively participated in Agile ceremonies, including planning, Scrum, review, and retrospectives, to ensure efficient project management. My efforts focused on improving user experience, enhancing app scalability, and meeting both behavior and design requirements. This project allowed me to demonstrate my expertise in iOS development, my ability to work collaboratively in a large team, and my proficiency in following Agile methodologies to deliver a successful mobile application for a major insurance company.",
-  },
-  {
-    role: "Fullstack Developer",
-    company: "Starbook",
-    dates: "January 2017 — March 2018",
-    description:
-      "As a web application developer for Starbook, I contributed to an innovative platform aimed at revolutionizing the gig economy. Using AngularJS 3+, I created an intuitive user interface, while developing a robust back-end with Node.js and RESTful APIs. I implemented Express.js and MongoDB for scalable data storage and worked collaboratively with a multidisciplinary team. My responsibilities included thorough testing, quality assurance, and ensuring cross-device compatibility. This project allowed me to utilize cutting-edge technologies and develop innovative solutions, ultimately creating a platform that provided professionals with an efficient way to receive quotes, thereby improving their livelihoods and contributing to the growth of the gig economy.",
-  },
-  {
-    role: "iOS Developer",
-    company: "Jobby Works",
-    dates: "July 2016 — December 2016",
-    description:
-      "As an iOS Lead Developer at Jobby Works in Milan, I played a crucial role in advancing their gig economy platform mobile application. Using Swift, I built upon existing code to introduce new features, particularly focusing on creating a real social network for companies and gig workers. Working independently with limited support, I overcame complex challenges to ensure the app's functionality and user experience met high standards. My contributions were instrumental in the successful launch of the Jobby mobile application in the marketplace, providing a seamless platform for businesses to connect with occasional workers. This project showcased my technical proficiency in iOS app development and my ability to work autonomously on complex mobile applications in the emerging gig economy sector.",
-  },
-  {
-    role: "iOS Developer",
-    company: "Frog Design",
-    dates: "June 2016",
-    description:
-      "At Frog Design, I contributed as an iOS developer to innovative projects aimed at enhancing user experiences. My work involved collaborating with a multidisciplinary team to develop cutting-edge applications. I focused on delivering polished, high-performing iOS applications tailored to meet client needs and exceed user expectations. This role allowed me to blend creativity with technical expertise, ensuring that the apps we developed were not only functional but also engaging and aesthetically pleasing. My time at Frog Design honed my skills in user-centered design and reinforced the importance of integrating technology seamlessly into everyday life.",
-  },
-  {
-    role: "iOS Developer",
-    company: "Widiba",
-    dates: "June 2015 — June 2016",
-    description:
-      "As an iOS developer for WIDIBA, one of the pioneering online banks in the market, I played a key role in developing their mobile banking app. I worked on porting the app from a hybrid application to a native iOS version, using both Objective-C and Swift. My responsibilities included creating main pages, implementing animations, designing user flows, and integrating backend services. The app I helped develop allows users to manage current accounts, track investments, and monitor investment performance. This project was particularly notable for its market success in providing customers with essential mobile banking tools.",
-  },
-];
+const profile = {
+  name: "Harald Bregu",
+  handle: "HaraldBregu",
+  mark: "hb",
+  location: "Busto Arsizio, IT",
+  locationHref: "https://www.google.com/maps/place/Milano",
+  description:
+    "Senior Lead Developer passionate about building scalable, robust, and cross-platform applications including desktop, web, and mobile solutions.",
+  summary:
+    "I'm Harald Bregu, a Senior Lead Developer with extensive expertise in cross-platform development, web, mobile, and backend systems. I have a proven track record of leading development teams and delivering reliable, scalable software solutions across various industries.",
+  focus:
+    "Currently building a cross-platform desktop text editor for critical applications. Core skills include Angular, ReactJS, Swift, Kotlin, Node.js, and desktop application development.",
+  email: "harald.bregu@gmail.com",
+  tel: "+393272415028",
+  github: "https://github.com/HaraldBregu",
+  linkedin: "https://www.linkedin.com/in/haraldbregu/",
+  x: "https://x.com/HaraldBregu",
+};
 
 const skills = [
   "Angular",
-  "TypeScript",
-  "JavaScript",
+  "Typescript",
+  "Javascript",
   "Node.js",
   "Express.js",
   "Swift",
@@ -142,116 +40,402 @@ const skills = [
   "C++",
   "C",
   "Objective-C",
-  "Next.js",
-  "React",
-  "Vue",
+  "Nextjs",
+  "Reactjs",
+  "VueJs",
   "Nuxt",
+];
+
+const work = [
+  {
+    when: "2025 — now",
+    role: "senior lead developer",
+    org: "Criterion",
+    desc: "leading a scalable cross-platform desktop editor for critical text editions.",
+    aside: "remote",
+  },
+  {
+    when: "2024 — now",
+    role: "senior angular developer",
+    org: "Repower",
+    desc: "building reusable cms components and customizing angular workflows in an agile team.",
+    aside: "milan",
+  },
+  {
+    when: "2023 — 24",
+    role: "senior angular developer",
+    org: "CSI",
+    desc: "modernized angular architecture, integrated ngrx, and improved frontend responsiveness.",
+    aside: "milan",
+  },
+  {
+    when: "2023",
+    role: "senior angular developer",
+    org: "Keytech",
+    desc: "architected a modular reservation management platform with angular 15+.",
+    aside: "milan",
+  },
+  {
+    when: "2022 — 23",
+    role: "senior angular developer",
+    org: "Azimut Holding",
+    desc: "supported internal file-transfer tooling with react, firebird, perl, and shell scripts.",
+    aside: "milan",
+  },
+  {
+    when: "2022",
+    role: "senior angular developer",
+    org: "Sinerpay",
+    desc: "built a react and aws payment-collection platform from domain setup to delivery.",
+    aside: "milan",
+  },
+  {
+    when: "2021 — 22",
+    role: "senior angular developer",
+    org: "ENEL",
+    desc: "developed and refactored an internal workstation booking app from angularjs toward angular 12+.",
+    aside: "milan",
+  },
+  {
+    when: "2020 — 21",
+    role: "ios senior developer",
+    org: "AXA",
+    desc: "refactored the myaxa app, built components, fixed bugs, and improved app performance.",
+    aside: "milan",
+  },
+  {
+    when: "2019 — 20",
+    role: "ios senior developer",
+    org: "Vimar",
+    desc: "built custom swift ui components for an iot home-automation configurator using viper.",
+    aside: "milan",
+  },
+  {
+    when: "2019",
+    role: "fullstack developer",
+    org: "CER Manager",
+    desc: "fullstack delivery for a short-cycle software engagement.",
+    aside: "milan",
+  },
+  {
+    when: "2019",
+    role: "fullstack developer",
+    org: "AGS",
+    desc: "created angular iot dashboards, maintained angular/java/android systems, and supported python ml work.",
+    aside: "milan",
+  },
+  {
+    when: "2019",
+    role: "full stack developer",
+    org: "Sinergidea",
+    desc: "built ios qr-code tooling and a react/aws version of the sinerpay web app.",
+    aside: "milan",
+  },
+  {
+    when: "2018",
+    role: "ios senior developer",
+    org: "AXA",
+    desc: "delivered swift app features, libraries, mvvm/mvc flows, and agile release work.",
+    aside: "milan",
+  },
+  {
+    when: "2017 — 18",
+    role: "fullstack developer",
+    org: "Starbook",
+    desc: "built an angularjs, node.js, restful api, and mongodb platform for gig-economy quoting.",
+    aside: "milan",
+  },
+  {
+    when: "2016",
+    role: "ios developer",
+    org: "Jobby Works",
+    desc: "advanced a swift mobile platform connecting companies with occasional workers.",
+    aside: "milan",
+  },
+  {
+    when: "2016",
+    role: "ios developer",
+    org: "Frog Design",
+    desc: "collaborated on polished, user-centered ios applications for client work.",
+    aside: "milan",
+  },
+  {
+    when: "2015 — 16",
+    role: "ios developer",
+    org: "Widiba",
+    desc: "ported a hybrid banking app to native ios with objective-c and swift.",
+    aside: "milan",
+  },
+];
+
+const projects = [
+  {
+    when: "2024",
+    name: "Chat Collect",
+    href: "https://chatcollect.com",
+    desc: "saas for collecting email addresses from gpt users after the openai gpt store launch.",
+    stat: "next.js · stripe",
+  },
+  {
+    when: "2023 — now",
+    name: "Magic UI",
+    href: "https://magicui.design",
+    desc: "animated ui components designed, developed, and sold for developers.",
+    stat: "ui · motion",
+  },
+  {
+    when: "2023",
+    name: "llm.report",
+    href: "https://llm.report",
+    desc: "open-source logging and analytics for chatgpt api requests, costs, and prompt analysis.",
+    stat: "open source",
+  },
+  {
+    when: "2023 — 24",
+    name: "Automatic Chat",
+    href: "https://automatic.chat",
+    desc: "ai customer support chatbot that responds to support tickets with gpt models.",
+    stat: "ai support",
+  },
+];
+
+const services = [
+  {
+    title: "architecture development",
+    desc: "software blueprints for scalability and business alignment before implementation starts.",
+    stat: "planning",
+  },
+  {
+    title: "app development",
+    desc: "backend-to-frontend delivery for web, mobile, and desktop applications.",
+    stat: "delivery",
+  },
+  {
+    title: "feature development",
+    desc: "new product capabilities implemented and integrated into existing systems.",
+    stat: "product",
+  },
+  {
+    title: "bug fixing",
+    desc: "issue diagnosis and stabilization work for reliable applications.",
+    stat: "quality",
+  },
+  {
+    title: "team leading",
+    desc: "technical leadership for teams building solid, scalable software.",
+    stat: "leadership",
+  },
+  {
+    title: "junior formation",
+    desc: "mentoring junior developers in best practices and effective contribution.",
+    stat: "mentoring",
+  },
+  {
+    title: "software documentation",
+    desc: "documentation that supports maintenance and ongoing development.",
+    stat: "docs",
+  },
+  {
+    title: "ci/cd implementation",
+    desc: "automated integration and deployment pipelines that reduce release errors.",
+    stat: "devops",
+  },
+  {
+    title: "cloud administration",
+    desc: "cloud infrastructure design and management across aws, gcp, and azure.",
+    stat: "cloud",
+  },
+];
+
+const posts = [
+  {
+    when: "2026",
+    title: "blog content status",
+    href: "#contact",
+    read: "helpers exist, but no mdx posts were found in the exported checkout.",
+    aside: "empty",
+  },
 ];
 ---
 
-<Layout title="Harald Bregu — Senior Lead Developer">
-  <article>
-    <header>
-      <img
-        src="/avatar-placeholder.svg"
-        alt="Harald Bregu"
-        width="120"
-        height="120"
-        class="avatar"
-      />
-      <h1>Hi, I'm Harald</h1>
-      <p>
-        Senior Lead Developer passionate about building scalable, robust, and
-        cross-platform applications including desktop, web, and mobile
-        solutions.
-      </p>
+<Layout title="Harald Bregu — Portfolio" description={profile.description}>
+  <main>
+    <header class="site">
+      <div class="top">
+        <span class="mark"><span class="glyph" aria-hidden="true"></span>{profile.mark}</span>
+        <span class="crumbs">~<span class="sep">/</span>portfolio<span class="sep">/</span>index</span>
+        <span>v.2026.05</span>
+      </div>
+
+      <div class="id-row">
+        <div class="id">
+          <h1 class="name">{profile.name.toLowerCase()}<span class="caret" aria-hidden="true"></span></h1>
+          <div class="role">
+            <span>senior lead developer</span>
+            <span class="pipe">/</span>
+            <span>desktop, web &amp; mobile</span>
+            <span class="tag">cross-platform</span>
+          </div>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button data-set-theme="light" aria-pressed="true">light</button>
+            <button data-set-theme="dark" aria-pressed="false">dark</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div class="status"><span class="dot"></span><span>available · professional inquiries</span></div>
+          <div class="where"><a href={profile.locationHref}>{profile.location}</a> / remote</div>
+        </div>
+      </div>
     </header>
 
-    <section>
-      <h2>About</h2>
-      <p>
-        I'm Harald Bregu, a Senior Lead Developer with extensive expertise in
-        cross-platform development, web, mobile, and backend systems. I have a
-        proven track record of leading development teams and delivering
-        reliable, scalable software solutions across various industries.
-        Currently building a cross-platform desktop text editor for critical
-        applications, my skills include Angular, ReactJS, Swift, Kotlin,
-        Node.js, and desktop application development. I am passionate about
-        staying updated with the latest technologies to provide innovative
-        solutions that meet current and future challenges.
-      </p>
+    <section class="intro" id="about">
+      <h2 class="sec-label"><span class="num">00</span><span>about</span></h2>
+      <p>{profile.description}</p>
+      <p>{profile.summary}</p>
+      <p class="muted">{profile.focus}</p>
     </section>
 
-    <section>
-      <h2>Work Experience</h2>
-      {
-        work.map((item) => (
-          <article class="job">
-            <h3>
-              {item.role} · {item.company}
-            </h3>
-            <p class="dates">
-              <em>{item.dates}</em>
-            </p>
-            {item.description && <p>{item.description}</p>}
-          </article>
-        ))
-      }
+    <section id="skills">
+      <h2 class="sec-label"><span class="num">01</span><span>skills</span></h2>
+      <div class="skill-list" aria-label="Skills">
+        {skills.map((skill) => <span class="skill">{skill}</span>)}
+      </div>
     </section>
 
-    <section>
-      <h2>Skills</h2>
-      <ul class="skills">
-        {skills.map((skill) => <li>{skill}</li>)}
-      </ul>
+    <section id="work">
+      <h2 class="sec-label"><span class="num">02</span><span>activities</span></h2>
+      <div class="rows">
+        {
+          work.map((item) => (
+            <div class="row">
+              <div class="when">{item.when}</div>
+              <div class="what">
+                {item.role}<span class="org">/ {item.org}</span>
+                <span class="desc">{item.desc}</span>
+              </div>
+              <div class="aside">{item.aside}</div>
+            </div>
+          ))
+        }
+      </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Have a question or want to discuss a potential project? Feel free to
-        reach out via email at <a href="mailto:harald.bregu@gmail.com"
-          >harald.bregu@gmail.com</a
-        >. I'll do my best to respond promptly.
-      </p>
-      <p>
-        Please note that I focus on professional inquiries related to Web and
-        Mobile frontend development opportunities. I respectfully ask that you
-        refrain from sending unsolicited marketing messages.
-      </p>
+    <section id="projects">
+      <h2 class="sec-label"><span class="num">03</span><span>projects</span></h2>
+      <div class="rows">
+        {
+          projects.map((project) => (
+            <div class="row proj-row">
+              <div class="when">{project.when}</div>
+              <div class="what">
+                <div class="head">
+                  <a class="title" href={project.href}>
+                    {project.name} <span class="arrow">-&gt;</span>
+                  </a>
+                </div>
+                <span class="desc">{project.desc}</span>
+              </div>
+              <div class="aside">
+                <span class="stars">{project.stat}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </section>
 
-    <footer>
-      <hr />
-      <p><small>© {new Date().getFullYear()} Harald Bregu</small></p>
+    <section id="services">
+      <h2 class="sec-label"><span class="num">04</span><span>services</span></h2>
+      <div class="rows">
+        {
+          services.map((service) => (
+            <div class="row proj-row">
+              <div class="when">{service.stat}</div>
+              <div class="what">
+                <div class="head">
+                  <span class="title">{service.title}</span>
+                </div>
+                <span class="desc">{service.desc}</span>
+              </div>
+              <div class="aside">exp lab 01</div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="github">
+      <h2 class="sec-label"><span class="num">05</span><span>github</span></h2>
+      <div class="gh">
+        <div class="gh-head">
+          <div class="handle"><span class="at">@</span>{profile.handle}</div>
+          <div class="stats"><b>portfolio</b> · astro site</div>
+        </div>
+        <div class="heatmap" id="heatmap" aria-hidden="true"></div>
+        <div class="heatmap-legend">
+          <span>commits, 52w</span>
+          <span class="scale">
+            less
+            <span class="sw"></span>
+            <span class="sw l1"></span>
+            <span class="sw l2"></span>
+            <span class="sw l3"></span>
+            <span class="sw l4"></span>
+            more
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2 class="sec-label"><span class="num">06</span><span>posts</span></h2>
+      <div class="rows">
+        {
+          posts.map((post) => (
+            <div class="row blog-row">
+              <div class="when">{post.when}</div>
+              <div class="what">
+                <a class="title" href={post.href}>{post.title}</a>
+                <span class="read">{post.read}</span>
+              </div>
+              <div class="aside">{post.aside}</div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="sec-label"><span class="num">07</span><span>contact</span></h2>
+      <dl class="contact-grid">
+        <dt>email</dt>
+        <dd>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <span class="hint">professional inquiries</span>
+        </dd>
+        <dt>phone</dt>
+        <dd><a href={`tel:${profile.tel.replaceAll(" ", "")}`}>{profile.tel}</a></dd>
+        <dt>github</dt>
+        <dd><a href={profile.github}>github.com/HaraldBregu</a></dd>
+        <dt>linkedin</dt>
+        <dd><a href={profile.linkedin}>linkedin.com/in/haraldbregu</a></dd>
+        <dt>x</dt>
+        <dd><a href={profile.x}>x.com/HaraldBregu</a></dd>
+      </dl>
+    </section>
+
+    <footer class="site">
+      <div>© 2026 harald bregu</div>
+      <div class="links">
+        <a href="#about">about</a>
+        <a href="#skills">skills</a>
+        <a href="#work">activities</a>
+        <a href="#projects">projects</a>
+        <a href="#services">services</a>
+        <a href="#writing">posts</a>
+        <a href="#contact">contact</a>
+      </div>
     </footer>
-  </article>
+  </main>
 </Layout>
-
-<style>
-  .avatar {
-    display: block;
-    width: 120px;
-    height: 120px;
-    margin: 0 0 16px;
-  }
-
-  .job {
-    margin: 0 0 24px;
-  }
-
-  .job h3 {
-    margin-bottom: 0;
-  }
-
-  .job h3 + p {
-    margin-top: 4px;
-    margin-bottom: 8px;
-    color: #59636e;
-  }
-
-  footer p {
-    color: #59636e;
-    margin: 0;
-  }
-</style>
