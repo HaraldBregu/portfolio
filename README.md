@@ -14,6 +14,10 @@ This site presents profile information, skills, professional activities, project
 
 ## Local Development
 
+Use Node.js `>=22.12.0`. The project is also configured with `.nvmrc`,
+`.node-version`, and `package.json` engines so Vercel does not build it with
+Node 20.
+
 Install dependencies:
 
 ```sh
@@ -37,6 +41,18 @@ Preview the production build:
 ```sh
 npm run preview
 ```
+
+## Vercel Deployment
+
+The repository includes `vercel.json` with the Astro build settings:
+
+- Install command: `npm ci`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+Astro 6 requires Node.js `>=22.12.0`. If Vercel still shows Node 20 in build
+logs, redeploy after this commit or set the project Node.js version to `22.x`
+or `24.x` in Vercel Project Settings.
 
 ## Contact
 
