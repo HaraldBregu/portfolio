@@ -22,7 +22,7 @@ export const posts = [
     read: "3 min read",
     aside: "ai",
     excerpt:
-      "A reflection on how standardization, software architecture, and AI tooling may reshape the future demand for software developers.",
+      "Will AI replace software developers? A reflection on how standardization, software architecture, and AI tooling are reshaping demand for developers.",
     tags: [
       "AI",
       "Software Development",
