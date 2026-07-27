@@ -41,7 +41,7 @@ export const posts = [
     read: "2 min read",
     aside: "pattern",
     excerpt:
-      "A Swift example of the Mediator design pattern, where buyers and sellers communicate through an agent instead of talking directly.",
+      "The Mediator design pattern in Swift, explained with a buyer, a seller, and an agent — objects that communicate through a mediator instead of directly.",
     tags: ["Swift", "Xcode", "IOS", "Design Pattern Ios", "Swift Programming"],
   },
   {
