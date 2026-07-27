@@ -54,7 +54,7 @@ export const posts = [
     read: "1 min read",
     aside: "pattern",
     excerpt:
-      "A short Swift example of the Monostate design pattern, where multiple instances share the same class-level state.",
+      "The Monostate design pattern in Swift — a singleton with a twist, where many instances of a class all share the same class-level state.",
     tags: ["IOS", "Xcode", "Playground", "IPhone", "Design Patterns"],
   },
   {
