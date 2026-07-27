@@ -142,6 +142,26 @@ const {
         color: var(--fg-faint);
       }
 
+      header.site .top .top-right {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      header.site .top .nav-link {
+        border-bottom: 0;
+        color: var(--fg);
+      }
+
+      header.site .top .nav-link .arrow {
+        color: var(--fg-faint);
+      }
+
+      header.site .top .nav-link:hover,
+      header.site .top .nav-link:hover .arrow {
+        color: var(--accent);
+      }
+
       header.site .top .crumbs .sep {
         opacity: 0.5;
         padding: 0 4px;

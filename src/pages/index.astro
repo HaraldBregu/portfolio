@@ -6,18 +6,22 @@ const profile = {
   name: "Harald Bregu",
   handle: "HaraldBregu",
   mark: "hb",
-  location: "Busto Arsizio, IT",
-  locationHref: "https://www.google.com/maps/place/Milano",
+  location: "Italy",
+  locationHref: "https://www.google.com/maps/place/Italia",
   description:
-    "Senior Lead Developer passionate about building scalable, robust, and cross-platform applications including desktop, web, and mobile solutions.",
+    "Senior Lead Developer building scalable, cross-platform applications across desktop, web, and mobile.",
   summary:
-    "I'm Harald Bregu, a Senior Lead Developer with extensive expertise in cross-platform development, web, mobile, and backend systems. I have a proven track record of leading development teams and delivering reliable, scalable software solutions across various industries.",
-  focus:
-    "Currently building a cross-platform desktop text editor for critical applications. Core skills include Angular, ReactJS, Swift, Kotlin, Node.js, and desktop application development.",
+    "I lead development teams and deliver reliable software across web, mobile, and backend systems.",
   email: "harald.bregu@gmail.com",
   github: "https://github.com/HaraldBregu",
   linkedin: "https://www.linkedin.com/in/haraldbregu/",
   x: "https://x.com/HaraldBregu",
+};
+
+const friday = {
+  name: "Friday",
+  href: "https://friday.haraldbregu.com/",
+  tagline: "your desktop ai personal assistant",
 };
 
 const externalLinkAttrs = {
@@ -26,41 +30,43 @@ const externalLinkAttrs = {
 };
 
 const skills = [
-  "Angular",
-  "Typescript",
-  "Javascript",
-  "Node.js",
-  "Express.js",
-  "Swift",
-  "SwiftUI",
-  "Kotlin",
-  "Flutter",
-  "Postgres",
-  "MongoDB",
-  "PostgreSQL",
-  "Docker",
-  "AWS",
-  "Firebase",
-  "Supabase",
-  "C++",
-  "C",
-  "Objective-C",
-  "Nextjs",
-  "Reactjs",
-  "VueJs",
-  "Nuxt",
+  "Team leadership",
+  "Delivery planning",
+  "Estimation",
+  "Prioritization",
+  "Release management",
+  "Agile ceremonies",
+  "Process improvement",
+  "Risk management",
+  "Incident handling",
+  "Cross-functional collaboration",
+  "Stakeholder alignment",
+  "Async & remote collaboration",
+  "Code review",
+  "Pairing",
+  "Mentoring & onboarding",
+  "Knowledge sharing",
+  "Documentation",
+  "Handover",
 ];
 
 const work = [
   {
-    when: "2025 — now",
+    when: "2026 — now",
+    role: "senior lead developer",
+    org: "JRC",
+    desc: "building data gathering software for the european commission.",
+    aside: "remote",
+  },
+  {
+    when: "2025 — 26",
     role: "senior lead developer",
     org: "Criterion",
     desc: "leading a scalable cross-platform desktop editor for critical text editions.",
     aside: "remote",
   },
   {
-    when: "2024 — now",
+    when: "2024 — 26",
     role: "senior angular developer",
     org: "Repower",
     desc: "building reusable cms components and customizing angular workflows in an agile team.",
@@ -175,6 +181,13 @@ const work = [
 
 const projects = [
   {
+    when: "2026 — now",
+    name: friday.name,
+    href: friday.href,
+    desc: "local-first desktop ai personal assistant: files, shell, web research, browser automation, and media generation with your own provider keys.",
+    stat: "electron · agents",
+  },
+  {
     when: "2024",
     name: "Chat Collect",
     href: "https://chatcollect.com",
@@ -260,7 +273,10 @@ const services = [
       <div class="top">
         <span class="mark"><span class="glyph" aria-hidden="true"></span>{profile.mark}</span>
         <span class="crumbs">~<span class="sep">/</span>portfolio<span class="sep">/</span>index</span>
-        <span>v.2026.05</span>
+        <span class="top-right">
+          <a class="nav-link" href={friday.href} {...externalLinkAttrs}>{friday.name} <span class="arrow">-&gt;</span></a>
+          <span>v.2026.05</span>
+        </span>
       </div>
 
       <div class="id-row">
@@ -288,8 +304,12 @@ const services = [
     <section class="intro" id="about">
       <h2 class="sec-label"><span class="num">00</span><span>about</span></h2>
       <p>{profile.description}</p>
-      <p>{profile.summary}</p>
-      <p class="muted">{profile.focus}</p>
+      <p>
+        I'm currently building <a href={friday.href} {...externalLinkAttrs}>Friday</a>, a local-first AI personal
+        assistant that turns plain language into real work — files, commands, web research, and media generation, all
+        with your own provider keys.
+      </p>
+      <p class="muted">{profile.summary}</p>
     </section>
 
     <section id="skills">
@@ -399,6 +419,7 @@ const services = [
     <footer class="site">
       <div>© 2026 harald bregu</div>
       <div class="links">
+        <a href={friday.href} {...externalLinkAttrs}>friday</a>
         <a href="#about">about</a>
         <a href="#skills">skills</a>
         <a href="#work">activities</a>

@@ -82,7 +82,10 @@ if let name = employee?.account?.name {
       <div class="top">
         <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
         <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
-        <span>{post.when}</span>
+        <span class="top-right">
+          <a class="nav-link" href="https://friday.haraldbregu.com/" target="_blank" rel="noopener noreferrer">Friday <span class="arrow">-&gt;</span></a>
+          <span>{post.when}</span>
+        </span>
       </div>
 
       <div class="id-row">
@@ -172,6 +175,7 @@ if let name = employee?.account?.name {
     <footer class="site">
       <div>© 2026 harald bregu</div>
       <div class="links">
+        <a href="https://friday.haraldbregu.com/" target="_blank" rel="noopener noreferrer">friday</a>
         <a href="/posts/">posts</a>
         <a href="/">home</a>
         <a href="/#contact">contact</a>

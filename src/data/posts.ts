@@ -1,5 +1,18 @@
 export const posts = [
   {
+    slug: "friday-desktop-ai-assistant-release",
+    href: "/posts/friday-desktop-ai-assistant-release/",
+    when: "2026",
+    date: "Jul 27, 2026",
+    isoDate: "2026-07-27",
+    title: "Friday 1.0: a local-first desktop AI assistant",
+    read: "4 min read",
+    aside: "release",
+    excerpt:
+      "Friday is out in public beta: a desktop AI assistant that runs a real tool loop on your machine, keeps your keys and history local, and asks before it acts.",
+    tags: ["AI", "Desktop", "Electron", "MCP", "Product Launch"],
+  },
+  {
     slug: "will-artificial-intelligence-replace-software-developers",
     href: "/posts/will-artificial-intelligence-replace-software-developers/",
     when: "2024",

@@ -1,0 +1,229 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { posts } from "../../data/posts";
+
+const post = posts.find((item) => item.slug === "friday-desktop-ai-assistant-release");
+
+if (!post) {
+  throw new Error("Post metadata not found.");
+}
+
+const fridayHref = "https://friday.haraldbregu.com/";
+const productHuntHref = "https://www.producthunt.com/products/friday-9";
+const externalLinkAttrs = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+};
+---
+
+<Layout
+  title={`${post.title} - Harald Bregu`}
+  description={post.excerpt}
+  url={`https://haraldbregu.com${post.href}`}
+  ogType="article"
+>
+  <main>
+    <header class="site">
+      <div class="top">
+        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
+        <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
+        <span class="top-right">
+          <a class="nav-link" href={fridayHref} {...externalLinkAttrs}>Friday <span class="arrow">-&gt;</span></a>
+          <span>{post.when}</span>
+        </span>
+      </div>
+
+      <div class="id-row">
+        <div class="id">
+          <p class="eyebrow">article</p>
+          <h1 class="article-title">{post.title}</h1>
+          <div class="role">
+            <time datetime={post.isoDate}>{post.date}</time>
+            <span class="pipe">/</span>
+            <span>{post.read}</span>
+          </div>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button data-set-theme="light" aria-pressed="true">light</button>
+            <button data-set-theme="dark" aria-pressed="false">dark</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div><a href="/posts/">all posts</a></div>
+          <div class="where"><a href="/">portfolio</a> / release</div>
+        </div>
+      </div>
+    </header>
+
+    <article class="post">
+      <p>
+        <a href={fridayHref} {...externalLinkAttrs}>Friday</a> is out in public beta. It's a desktop AI personal
+        assistant: you ask in plain language, and it runs a tool loop on your own machine until the work is actually
+        done. It's also live on
+        <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a> — support is welcome.
+      </p>
+
+      <h2>Why another assistant</h2>
+
+      <p>
+        Most assistants are a chat box in a browser tab. They can describe the work but can't do it, and everything you
+        type ends up in someone else's hosted account. I wanted the opposite trade: a normal desktop app that can touch
+        my files and my shell, with the keys and the history staying on my disk.
+      </p>
+
+      <h2>Chat that acts</h2>
+
+      <p>
+        Friday reads files, applies multi-file patches, runs shell commands, keeps long-running processes open, searches
+        the web, and drives a real browser. The loop keeps going until the task is finished instead of stopping at the
+        first answer — which is the difference between "here's a script you could run" and the script having run.
+      </p>
+
+      <h2>Local and private</h2>
+
+      <p>
+        It's an Electron app. Provider keys, conversation history, memory, projects, and generated media live in your
+        local application data, not in a hosted account. Your input leaves the machine only for the provider, MCP
+        server, website, or channel a given task actually needs.
+      </p>
+
+      <h2>Approval before action</h2>
+
+      <p>
+        Every tool carries its own policy. Reads are permissive; file edits, patches, and shell commands ask first, and
+        you can deny, allow once, or always allow. An agent with shell access is only reasonable if you decide what it's
+        allowed to touch.
+      </p>
+
+      <h2>Bring your own providers</h2>
+
+      <p>
+        There's no bundled model and no resold inference. You add your own keys and pick a provider and model
+        independently for each capability — assistant, transcription, speech, image, video, audio, scheduled work, and
+        health checks. Chat works with OpenAI, Anthropic, Google, xAI, Mistral, DeepSeek, Qwen, Kimi, Z.ai, MiniMax,
+        Reka, Perplexity, and any OpenAI-compatible endpoint. Voice, image, video, and audio each have their own
+        provider list.
+      </p>
+
+      <h2>Voice, skills, and automation</h2>
+
+      <p>
+        Dictation shows live partial transcripts on streaming models, and text-to-speech plays answers back. You can
+        extend Friday with local skills — a folder with a <code>SKILL.md</code> in it — or with remote HTTP and local
+        stdio MCP servers. A <code>HEALTH.md</code> checklist can run on an interval and respects whether you're
+        actually at the machine.
+      </p>
+
+      <h2>Getting it</h2>
+
+      <p>
+        v1.0 is a public beta, available for macOS (Intel and Apple Silicon), Windows, and Linux from the GitHub
+        releases page, in English and Italian, with light, dark, and system themes. Download it, add a key, set your
+        permissions, and start talking to it.
+      </p>
+
+      <p>
+        One honest caveat: keys, bot tokens, and MCP secrets sit in local config files rather than an encrypted vault,
+        and Friday makes no regulated-data certification claim. Worth knowing before you point it at anything sensitive.
+      </p>
+
+      <p>
+        Try it at <a href={fridayHref} {...externalLinkAttrs}>friday.haraldbregu.com</a>, and if it's useful, an upvote
+        on <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a> helps other people find it.
+      </p>
+
+      <div class="post-tags" aria-label="Post tags">
+        {post.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </article>
+
+    <footer class="site">
+      <div>© 2026 harald bregu</div>
+      <div class="links">
+        <a href={fridayHref} {...externalLinkAttrs}>friday</a>
+        <a href="/posts/">posts</a>
+        <a href="/">home</a>
+        <a href="/#contact">contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <style>
+    .top a.mark {
+      border-bottom: 0;
+    }
+
+    .eyebrow {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      color: var(--fg);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.16;
+      margin: 0;
+      max-width: 20ch;
+    }
+
+    .post {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .post p {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0 0 18px;
+      max-width: 72ch;
+    }
+
+    .post h2 {
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin: 32px 0 12px;
+    }
+
+    .post code {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg);
+      font: inherit;
+      font-size: 13px;
+      padding: 1px 4px;
+    }
+
+    .post-tags {
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+      padding-top: 16px;
+    }
+
+    .post-tags span {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      padding: 2px 7px;
+    }
+
+    @media (max-width: 520px) {
+      .article-title {
+        font-size: 26px;
+        max-width: none;
+      }
+    }
+  </style>
+</Layout>
