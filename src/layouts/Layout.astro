@@ -4,6 +4,8 @@ interface Props {
   description?: string;
   url?: string;
   ogType?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -11,7 +13,11 @@ const {
   description = "Harald Bregu — senior lead developer building web, mobile, and desktop products.",
   url = "https://haraldbregu.com",
   ogType = "website",
+  image = "/og/default.png",
+  imageAlt = title,
 } = Astro.props;
+
+const imageUrl = new URL(image, "https://haraldbregu.com").href;
 ---
 
 <!doctype html>
