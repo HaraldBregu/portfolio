@@ -35,9 +35,18 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
     <meta property="og:site_name" content="Harald Bregu" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <meta name="twitter:creator" content="@HaraldBregu" />
+    <meta name="author" content="Harald Bregu" />
     <link rel="canonical" href={url} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
