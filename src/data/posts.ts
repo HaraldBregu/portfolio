@@ -67,7 +67,7 @@ export const posts = [
     read: "2 min read",
     aside: "swift",
     excerpt:
-      "A short walkthrough of strong and weak references in Swift, with examples that show how object deallocation changes when references are released.",
+      "Strong and weak references in Swift, with runnable examples showing how ARC deallocates objects differently once a reference is released.",
     tags: ["IOS", "Swift", "Xcode", "Design Patterns"],
   },
 ] as const;
