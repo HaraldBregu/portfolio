@@ -179,44 +179,6 @@ const work = [
   },
 ];
 
-const projects = [
-  {
-    when: "2026 — now",
-    name: friday.name,
-    href: friday.href,
-    desc: "local-first desktop ai personal assistant: files, shell, web research, browser automation, and media generation with your own provider keys.",
-    stat: "electron · agents",
-  },
-  {
-    when: "2024",
-    name: "Chat Collect",
-    href: "https://chatcollect.com",
-    desc: "saas for collecting email addresses from gpt users after the openai gpt store launch.",
-    stat: "next.js · stripe",
-  },
-  {
-    when: "2023 — now",
-    name: "Magic UI",
-    href: "https://magicui.design",
-    desc: "animated ui components designed, developed, and sold for developers.",
-    stat: "ui · motion",
-  },
-  {
-    when: "2023",
-    name: "llm.report",
-    href: "https://llm.report",
-    desc: "open-source logging and analytics for chatgpt api requests, costs, and prompt analysis.",
-    stat: "open source",
-  },
-  {
-    when: "2023 — 24",
-    name: "Automatic Chat",
-    href: "https://automatic.chat",
-    desc: "ai customer support chatbot that responds to support tickets with gpt models.",
-    stat: "ai support",
-  },
-];
-
 const services = [
   {
     title: "architecture development",
@@ -341,32 +303,8 @@ const services = [
       </div>
     </section>
 
-    <section id="projects">
-      <h2 class="sec-label"><span class="num">03</span><span>projects</span></h2>
-      <div class="rows">
-        {
-          projects.map((project) => (
-            <div class="row proj-row">
-              <div class="when">{project.when}</div>
-              <div class="what">
-                <div class="head">
-                  <a class="title" href={project.href} {...externalLinkAttrs}>
-                    {project.name} <span class="arrow">-&gt;</span>
-                  </a>
-                </div>
-                <span class="desc">{project.desc}</span>
-              </div>
-              <div class="aside">
-                <span class="stars">{project.stat}</span>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
     <section id="services">
-      <h2 class="sec-label"><span class="num">04</span><span>services</span></h2>
+      <h2 class="sec-label"><span class="num">03</span><span>services</span></h2>
       <div class="rows">
         {
           services.map((service) => (
@@ -427,7 +365,6 @@ const services = [
         <a href="#about">about</a>
         <a href="#skills">skills</a>
         <a href="#work">activities</a>
-        <a href="#projects">projects</a>
         <a href="#services">services</a>
         <a href="/posts/">posts</a>
         <a href="#contact">contact</a>
