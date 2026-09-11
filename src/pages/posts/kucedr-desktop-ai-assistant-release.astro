@@ -2,14 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import { posts } from "../../data/posts";
 
-const post = posts.find((item) => item.slug === "friday-desktop-ai-assistant-release");
+const post = posts.find((item) => item.slug === "kucedr-desktop-ai-assistant-release");
 
 if (!post) {
   throw new Error("Post metadata not found.");
 }
 
-const fridayHref = "https://friday.haraldbregu.com/";
-const productHuntHref = "https://www.producthunt.com/products/friday-9";
+const kucedrHref = "https://github.com/HaraldBregu/kucedr";
+const productHuntHref = "https://www.producthunt.com/products/kucedr-9";
 const externalLinkAttrs = {
   target: "_blank",
   rel: "noopener noreferrer",
@@ -30,7 +30,7 @@ const externalLinkAttrs = {
         <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
         <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
         <span class="top-right">
-          <a class="nav-link" href={fridayHref} {...externalLinkAttrs}>Friday <span class="arrow">-&gt;</span></a>
+          <a class="nav-link" href={kucedrHref} {...externalLinkAttrs}>Kucedr <span class="arrow">-&gt;</span></a>
           <span>{post.when}</span>
         </span>
       </div>
@@ -59,7 +59,7 @@ const externalLinkAttrs = {
 
     <article class="post">
       <p>
-        <a href={fridayHref} {...externalLinkAttrs}>Friday</a> is out in public beta. It's a desktop AI personal
+        <a href={kucedrHref} {...externalLinkAttrs}>Kucedr</a> is out in public beta. It's a desktop AI personal
         assistant: you ask in plain language, and it runs a tool loop on your own machine until the work is actually
         done. It's also live on
         <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a> — support is welcome.
@@ -76,7 +76,7 @@ const externalLinkAttrs = {
       <h2>Chat that acts</h2>
 
       <p>
-        Friday reads files, applies multi-file patches, runs shell commands, keeps long-running processes open, searches
+        Kucedr reads files, applies multi-file patches, runs shell commands, keeps long-running processes open, searches
         the web, and drives a real browser. The loop keeps going until the task is finished instead of stopping at the
         first answer — which is the difference between "here's a script you could run" and the script having run.
       </p>
@@ -111,7 +111,7 @@ const externalLinkAttrs = {
 
       <p>
         Dictation shows live partial transcripts on streaming models, and text-to-speech plays answers back. You can
-        extend Friday with local skills — a folder with a <code>SKILL.md</code> in it — or with remote HTTP and local
+        extend Kucedr with local skills — a folder with a <code>SKILL.md</code> in it — or with remote HTTP and local
         stdio MCP servers. A <code>HEALTH.md</code> checklist can run on an interval and respects whether you're
         actually at the machine.
       </p>
@@ -126,11 +126,11 @@ const externalLinkAttrs = {
 
       <p>
         One honest caveat: keys, bot tokens, and MCP secrets sit in local config files rather than an encrypted vault,
-        and Friday makes no regulated-data certification claim. Worth knowing before you point it at anything sensitive.
+        and Kucedr makes no regulated-data certification claim. Worth knowing before you point it at anything sensitive.
       </p>
 
       <p>
-        Try it at <a href={fridayHref} {...externalLinkAttrs}>friday.haraldbregu.com</a>, and if it's useful, an upvote
+        Try it at <a href={kucedrHref} {...externalLinkAttrs}>github.com/HaraldBregu/kucedr</a>, and if it's useful, an upvote
         on <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a> helps other people find it.
       </p>
 
@@ -142,7 +142,7 @@ const externalLinkAttrs = {
     <footer class="site">
       <div>© 2026 harald bregu</div>
       <div class="links">
-        <a href={fridayHref} {...externalLinkAttrs}>friday</a>
+        <a href={kucedrHref} {...externalLinkAttrs}>kucedr</a>
         <a href="/posts/">posts</a>
         <a href="/">home</a>
         <a href="/#contact">contact</a>

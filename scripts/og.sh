@@ -14,7 +14,7 @@ mkdir -p "$OUT"
 CARDS=(
   "default|portfolio|harald bregu|senior lead developer · desktop, web & mobile"
   "posts|posts|writing|notes on software, patterns, and the things i build"
-  "friday-desktop-ai-assistant-release|release · jul 2026|Friday 1.0|a local-first desktop AI assistant that runs a real tool loop"
+  "kucedr-desktop-ai-assistant-release|release · jul 2026|Kucedr 1.0|a local-first desktop AI assistant that runs a real tool loop"
   "will-artificial-intelligence-replace-software-developers|article · dec 2024|Will AI replace software developers?|standardization, architecture, and the future demand for developers"
   "mediator-design-pattern-in-swift|article · feb 2023|Mediator design pattern in Swift|buyers and sellers that talk through an agent, not to each other"
   "monostate-or-singleton-with-a-twist-design-pattern|article · feb 2023|Monostate design pattern|a singleton with a twist: many instances, one shared state"
