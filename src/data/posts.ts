@@ -5,11 +5,11 @@ export const posts = [
     when: "2026",
     date: "Jul 27, 2026",
     isoDate: "2026-07-27",
-    title: "Kucedr 1.0: a local-first desktop AI assistant",
+    title: "Kucedr 1.0: One Desktop Agent. Infinite Personal Tools.",
     read: "4 min read",
     aside: "release",
     excerpt:
-      "Kucedr is out in public beta: a desktop AI assistant that runs a real tool loop on your machine, keeps your keys and history local, and asks before it acts.",
+      "Kucedr is one desktop agent with infinite personal tools: it turns plain language into real work on your machine while keeping your keys, history, and decisions under your control.",
     tags: ["AI", "Desktop", "Electron", "MCP", "Product Launch"],
   },
   {
