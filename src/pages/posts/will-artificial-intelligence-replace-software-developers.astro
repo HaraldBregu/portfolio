@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { posts } from "../../data/posts";
+import { createArticleSchema } from "../../data/seo";
 
 const post = posts.find(
   (item) => item.slug === "will-artificial-intelligence-replace-software-developers",
@@ -12,12 +13,13 @@ if (!post) {
 ---
 
 <Layout
-  title={`${post.title} - Harald Bregu`}
+  title={`${post.title} | Harald Bregu`}
   description={post.excerpt}
   url={`https://haraldbregu.com${post.href}`}
   image={`/og/${post.slug}.png`}
   imageAlt={post.title}
   ogType="article"
+  structuredData={createArticleSchema(post)}
 >
   <main>
     <header class="site">
@@ -40,8 +42,8 @@ if (!post) {
             <span>{post.read}</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">Light</button>
-            <button data-set-theme="dark" aria-pressed="false">Dark</button>
+            <button data-set-theme="dark" aria-pressed="false">Ink</button>
+            <button data-set-theme="light" aria-pressed="true">Paper</button>
           </div>
         </div>
 

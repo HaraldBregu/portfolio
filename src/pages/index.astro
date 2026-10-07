@@ -1,17 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { posts } from "../data/posts";
+import { createProfileSchema } from "../data/seo";
 
 const profile = {
   name: "Harald Bregu",
   handle: "HaraldBregu",
   mark: "Harald Bregu",
-  location: "Italy",
-  locationHref: "https://www.google.com/maps/place/Italia",
   description:
-    "Senior Lead Developer building scalable, cross-platform applications across desktop, web, and mobile.",
+    "I’m an AI-first developer and technical leader. I build scalable software systems and design AI agent workflows based on my work with Kucedr. I help teams turn complex ideas into reliable products and use AI where it adds practical value.",
   summary:
-    "I lead development teams and deliver reliable software across web, mobile, and backend systems.",
+    "I help teams make clear technical decisions and deliver reliable software from early planning through release.",
   email: "harald.bregu@gmail.com",
   github: "https://github.com/HaraldBregu",
   linkedin: "https://www.linkedin.com/in/haraldbregu/",
@@ -52,28 +51,28 @@ const skills = [
 
 const work = [
   {
-    when: "2026 — now",
+    when: "2026–now",
     role: "senior lead developer",
     org: "JRC",
     desc: "building data gathering software for the european commission.",
     aside: "remote",
   },
   {
-    when: "2025 — 26",
+    when: "2025–26",
     role: "senior lead developer",
     org: "Criterion",
     desc: "leading a scalable cross-platform desktop editor for critical text editions.",
     aside: "remote",
   },
   {
-    when: "2024 — 26",
+    when: "2024–26",
     role: "senior angular developer",
     org: "Repower",
     desc: "building reusable cms components and customizing angular workflows in an agile team.",
     aside: "milan",
   },
   {
-    when: "2023 — 24",
+    when: "2023–24",
     role: "senior angular developer",
     org: "CSI",
     desc: "modernized angular architecture, integrated ngrx, and improved frontend responsiveness.",
@@ -87,7 +86,7 @@ const work = [
     aside: "milan",
   },
   {
-    when: "2022 — 23",
+    when: "2022–23",
     role: "senior angular developer",
     org: "Azimut Holding",
     desc: "supported internal file-transfer tooling with react, firebird, perl, and shell scripts.",
@@ -101,21 +100,21 @@ const work = [
     aside: "milan",
   },
   {
-    when: "2021 — 22",
+    when: "2021–22",
     role: "senior angular developer",
     org: "ENEL",
     desc: "developed and refactored an internal workstation booking app from angularjs toward angular 12+.",
     aside: "milan",
   },
   {
-    when: "2020 — 21",
+    when: "2020–21",
     role: "ios senior developer",
     org: "AXA",
     desc: "refactored the myaxa app, built components, fixed bugs, and improved app performance.",
     aside: "milan",
   },
   {
-    when: "2019 — 20",
+    when: "2019–20",
     role: "ios senior developer",
     org: "Vimar",
     desc: "built custom swift ui components for an iot home-automation configurator using viper.",
@@ -150,7 +149,7 @@ const work = [
     aside: "milan",
   },
   {
-    when: "2017 — 18",
+    when: "2017–18",
     role: "fullstack developer",
     org: "Starbook",
     desc: "built an angularjs, node.js, restful api, and mongodb platform for gig-economy quoting.",
@@ -171,7 +170,7 @@ const work = [
     aside: "milan",
   },
   {
-    when: "2015 — 16",
+    when: "2015–16",
     role: "ios developer",
     org: "Widiba",
     desc: "ported a hybrid banking app to native ios with objective-c and swift.",
@@ -230,9 +229,10 @@ const services = [
 ---
 
 <Layout
-  title="Harald Bregu — Senior Lead Developer"
-  description="Harald Bregu, senior lead developer in Italy building scalable desktop, web, and mobile software. Creator of Kucedr: One Desktop Agent. Infinite Personal Tools."
-  imageAlt="Harald Bregu — senior lead developer, desktop, web and mobile"
+  title="Harald Bregu | Software Engineer"
+  description="Harald Bregu is an AI-first developer and technical leader who builds scalable software systems and AI agent workflows, drawing on his work with Kucedr."
+  imageAlt="Harald Bregu, AI-first developer building software systems and agent workflows"
+  structuredData={createProfileSchema(profile.description)}
 >
   <main>
     <header class="site">
@@ -249,17 +249,17 @@ const services = [
         <div class="id">
           <h1 class="name">{profile.name}</h1>
           <div class="role">
-            <span>Senior Lead Developer</span>
+            <span>Software Engineer</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">Light</button>
-            <button data-set-theme="dark" aria-pressed="false">Dark</button>
+            <button data-set-theme="dark" aria-pressed="false">Ink</button>
+            <button data-set-theme="light" aria-pressed="true">Paper</button>
           </div>
         </div>
 
         <div class="meta">
           <div class="status"><span class="dot"></span><span>available · professional inquiries</span></div>
-          <div class="where"><a href={profile.locationHref} {...externalLinkAttrs}>{profile.location}</a> / remote</div>
+          <div class="where">Available worldwide · remote</div>
         </div>
       </div>
     </header>
@@ -268,10 +268,9 @@ const services = [
       <h2 class="sec-label"><span class="num">00</span><span>about</span></h2>
       <p>{profile.description}</p>
       <p>
-        I'm currently building <a href={kucedr.href} {...externalLinkAttrs}>Kucedr</a>: One Desktop Agent. Infinite
-        Personal Tools. It transforms plain-language requests into completed work — editing files, running commands,
-        researching the web, and generating media — directly from your desktop, with your own provider keys and you
-        always in control.
+        I'm building <a href={kucedr.href} {...externalLinkAttrs}>Kucedr</a>, an AI assistant that turns plain-language
+        requests into finished work. It can update files, run tasks, research online, and create media, while keeping
+        your provider keys, history, and approvals under your control.
       </p>
       <p class="muted">{profile.summary}</p>
     </section>

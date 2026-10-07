@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { posts } from "../../data/posts";
+import { createArticleSchema } from "../../data/seo";
 
 const post = posts.find((item) => item.slug === "kucedr-desktop-ai-assistant-release");
 
@@ -17,12 +18,13 @@ const externalLinkAttrs = {
 ---
 
 <Layout
-  title={`${post.title} - Harald Bregu`}
+  title={`${post.title} | Harald Bregu`}
   description={post.excerpt}
   url={`https://haraldbregu.com${post.href}`}
   image={`/og/${post.slug}.png`}
   imageAlt={post.title}
   ogType="article"
+  structuredData={createArticleSchema(post)}
 >
   <main>
     <header class="site">
@@ -45,8 +47,8 @@ const externalLinkAttrs = {
             <span>{post.read}</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">Light</button>
-            <button data-set-theme="dark" aria-pressed="false">Dark</button>
+            <button data-set-theme="dark" aria-pressed="false">Ink</button>
+            <button data-set-theme="light" aria-pressed="true">Paper</button>
           </div>
         </div>
 
@@ -60,9 +62,8 @@ const externalLinkAttrs = {
     <article class="post">
       <p>
         <a href={kucedrHref} {...externalLinkAttrs}>Kucedr</a> is out in public beta. One Desktop Agent. Infinite
-        Personal Tools. Ask in plain language and it runs a tool loop on your machine until the work is actually done —
-        not merely described. It's also live on
-        <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a> — support is welcome.
+        Personal Tools. Ask in plain language and it runs a tool loop until the work is done, not merely described.
+        It's also live on <a href={productHuntHref} {...externalLinkAttrs}>Product Hunt</a>. Support is welcome.
       </p>
 
       <h2>Why another assistant</h2>
@@ -78,7 +79,7 @@ const externalLinkAttrs = {
       <p>
         Kucedr reads files, applies multi-file patches, runs shell commands, keeps long-running processes open, searches
         the web, and drives a real browser. The loop keeps going until the task is finished instead of stopping at the
-        first answer — which is the difference between "here's a script you could run" and the script having run.
+        first answer. That's the difference between "here's a script you could run" and the script having run.
       </p>
 
       <h2>Local and private</h2>
@@ -101,7 +102,7 @@ const externalLinkAttrs = {
 
       <p>
         There's no bundled model and no resold inference. You add your own keys and pick a provider and model
-        independently for each capability — assistant, transcription, speech, image, video, audio, scheduled work, and
+        independently for each capability: assistant, transcription, speech, image, video, audio, scheduled work, and
         health checks. Chat works with OpenAI, Anthropic, Google, xAI, Mistral, DeepSeek, Qwen, Kimi, Z.ai, MiniMax,
         Reka, Perplexity, and any OpenAI-compatible endpoint. Voice, image, video, and audio each have their own
         provider list.
@@ -111,7 +112,7 @@ const externalLinkAttrs = {
 
       <p>
         Dictation shows live partial transcripts on streaming models, and text-to-speech plays answers back. You can
-        extend Kucedr with local skills — a folder with a <code>SKILL.md</code> in it — or with remote HTTP and local
+        extend Kucedr with local skills, a folder with a <code>SKILL.md</code> in it, or with remote HTTP and local
         stdio MCP servers. A <code>HEALTH.md</code> checklist can run on an interval and respects whether you're
         actually at the machine.
       </p>

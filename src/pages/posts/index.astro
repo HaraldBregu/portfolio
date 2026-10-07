@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { posts } from "../../data/posts";
+import { createPostsSchema } from "../../data/seo";
 
 const externalLinkAttrs = {
   target: "_blank",
@@ -9,11 +10,12 @@ const externalLinkAttrs = {
 ---
 
 <Layout
-  title="Posts - Harald Bregu"
-  description="Posts by Harald Bregu on AI tooling, Swift and iOS, design patterns, and software architecture — plus release notes for the products he builds."
+  title="Writing | Harald Bregu"
+  description="Posts by Harald Bregu on AI tooling, Swift and iOS, design patterns, software architecture, and product release notes."
   url="https://haraldbregu.com/posts/"
   image="/og/posts.png"
   imageAlt="Posts by Harald Bregu"
+  structuredData={createPostsSchema(posts)}
 >
   <main>
     <header class="site">
@@ -35,8 +37,8 @@ const externalLinkAttrs = {
             <span>Swift, iOS &amp; architecture</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">Light</button>
-            <button data-set-theme="dark" aria-pressed="false">Dark</button>
+            <button data-set-theme="dark" aria-pressed="false">Ink</button>
+            <button data-set-theme="light" aria-pressed="true">Paper</button>
           </div>
         </div>
 

@@ -41,7 +41,7 @@ export const posts = [
     read: "2 min read",
     aside: "pattern",
     excerpt:
-      "The Mediator design pattern in Swift, explained with a buyer, a seller, and an agent — objects that communicate through a mediator instead of directly.",
+      "The Mediator design pattern in Swift, explained with a buyer, a seller, and an agent. The objects communicate through a mediator instead of directly.",
     tags: ["Swift", "Xcode", "IOS", "Design Pattern Ios", "Swift Programming"],
   },
   {
@@ -54,7 +54,7 @@ export const posts = [
     read: "1 min read",
     aside: "pattern",
     excerpt:
-      "The Monostate design pattern in Swift — a singleton with a twist, where many instances of a class all share the same class-level state.",
+      "The Monostate design pattern in Swift, a singleton with a twist where many instances of a class share the same class-level state.",
     tags: ["IOS", "Xcode", "Playground", "IPhone", "Design Patterns"],
   },
   {

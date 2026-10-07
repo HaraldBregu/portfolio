@@ -6,18 +6,23 @@ interface Props {
   ogType?: string;
   image?: string;
   imageAlt?: string;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
   title,
-  description = "Harald Bregu — senior lead developer building web, mobile, and desktop products.",
-  url = "https://haraldbregu.com",
+  description = "Harald Bregu, AI-first software engineer building scalable software systems and AI agent workflows.",
+  url = "https://haraldbregu.com/",
   ogType = "website",
   image = "/og/default.png",
   imageAlt = title,
+  structuredData,
 } = Astro.props;
 
 const imageUrl = new URL(image, "https://haraldbregu.com").href;
+const structuredDataJson = structuredData
+  ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+  : undefined;
 ---
 
 <!doctype html>
@@ -29,6 +34,7 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
     <meta name="color-scheme" content="light dark" />
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
@@ -48,6 +54,7 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
     <meta name="twitter:creator" content="@HaraldBregu" />
     <meta name="author" content="Harald Bregu" />
     <link rel="canonical" href={url} />
+    <link rel="sitemap" type="application/xml" href="https://haraldbregu.com/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,35 +63,36 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
       rel="stylesheet"
     />
     <title>{title}</title>
+    {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
   </head>
   <body>
     <slot />
 
     <style is:global>
       :root {
-        --bg: #faf9f6;
-        --bg-sub: #f1efe9;
-        --fg: #26251f;
-        --fg-mute: #68675f;
-        --fg-faint: #89877f;
-        --rule: #e7e4dc;
-        --accent: #a45135;
-        --mark: #f0dfd3;
-        --link-underline: #c9c8c0;
+        --bg: #f6f1e7;
+        --bg-sub: #eee8dc;
+        --fg: #24221e;
+        --fg-mute: #5e5a51;
+        --fg-faint: #777267;
+        --rule: #ddd6c9;
+        --accent: #3e3a32;
+        --mark: #e6dfd2;
+        --link-underline: #bcb4a6;
         --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         --serif: "Lora", Georgia, serif;
       }
 
       html[data-theme="dark"] {
-        --bg: #191916;
-        --bg-sub: #22221e;
-        --fg: #f1eee7;
-        --fg-mute: #b7b2a8;
-        --fg-faint: #88847b;
-        --rule: #34332d;
-        --accent: #e3a17d;
-        --mark: #49352b;
-        --link-underline: #51483e;
+        --bg: #171715;
+        --bg-sub: #22211e;
+        --fg: #f3ecdf;
+        --fg-mute: #c0b8a9;
+        --fg-faint: #938b7d;
+        --rule: #37342f;
+        --accent: #e2d4b7;
+        --mark: #39362f;
+        --link-underline: #696154;
       }
 
       * {
@@ -262,7 +270,7 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
         display: inline-flex;
         align-self: flex-start;
         border: 1px solid var(--rule);
-        border-radius: 2px;
+        border-radius: 999px;
         overflow: hidden;
         margin-top: 8px;
       }
@@ -271,7 +279,7 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
         appearance: none;
         background: transparent;
         border: 0;
-        padding: 3px 9px;
+        padding: 5px 11px;
         font: inherit;
         font-size: 12px;
         color: var(--fg-mute);
@@ -589,7 +597,14 @@ const imageUrl = new URL(image, "https://haraldbregu.com").href;
         const prefersDark =
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const initial = stored || (prefersDark ? "dark" : "light");
+        const initial =
+          stored === "ink" || stored === "dark"
+            ? "dark"
+            : stored === "paper" || stored === "light"
+              ? "light"
+              : prefersDark
+                ? "dark"
+                : "light";
 
         const setTheme = (theme) => {
           root.setAttribute("data-theme", theme);
