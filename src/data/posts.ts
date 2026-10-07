@@ -20,7 +20,7 @@ export const posts = [
     isoDate: "2024-12-13",
     title: "Will Artificial Intelligence Replace Software Developers?",
     read: "3 min read",
-    aside: "ai",
+    aside: "AI",
     excerpt:
       "Will AI replace software developers? A reflection on how standardization, software architecture, and AI tooling are reshaping demand for developers.",
     tags: [
@@ -65,7 +65,7 @@ export const posts = [
     isoDate: "2023-02-25",
     title: "Strong and weak references in Swift",
     read: "2 min read",
-    aside: "swift",
+    aside: "Swift",
     excerpt:
       "Strong and weak references in Swift, with runnable examples showing how ARC deallocates objects differently once a reference is released.",
     tags: ["IOS", "Swift", "Xcode", "Design Patterns"],

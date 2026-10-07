@@ -82,10 +82,10 @@ if let name = employee?.account?.name {
   <main>
     <header class="site">
       <div class="top">
-        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>hb</a>
-        <span class="crumbs">~<span class="sep">/</span>posts<span class="sep">/</span>{post.slug}</span>
+        <a class="mark" href="/"><span class="glyph" aria-hidden="true"></span>Harald Bregu</a>
+        <span class="crumbs">Writing &amp; ideas</span>
         <span class="top-right">
-          <a class="nav-link" href="https://github.com/HaraldBregu/kucedr" target="_blank" rel="noopener noreferrer">Kucedr <span class="arrow">-&gt;</span></a>
+          <a class="nav-link" href="https://kucedr.com" target="_blank" rel="noopener noreferrer">Kucedr <span class="arrow">-&gt;</span></a>
           <span>{post.when}</span>
         </span>
       </div>
@@ -100,8 +100,8 @@ if let name = employee?.account?.name {
             <span>{post.read}</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">light</button>
-            <button data-set-theme="dark" aria-pressed="false">dark</button>
+            <button data-set-theme="light" aria-pressed="true">Light</button>
+            <button data-set-theme="dark" aria-pressed="false">Dark</button>
           </div>
         </div>
 
@@ -177,7 +177,7 @@ if let name = employee?.account?.name {
     <footer class="site">
       <div>© 2026 harald bregu</div>
       <div class="links">
-        <a href="https://github.com/HaraldBregu/kucedr" target="_blank" rel="noopener noreferrer">kucedr</a>
+        <a href="https://kucedr.com" target="_blank" rel="noopener noreferrer">kucedr</a>
         <a href="/posts/">posts</a>
         <a href="/">home</a>
         <a href="/#contact">contact</a>
@@ -199,10 +199,11 @@ if let name = employee?.account?.name {
     }
 
     .article-title {
+      font-family: var(--serif);
       color: var(--fg);
-      font-size: 30px;
-      font-weight: 500;
-      line-height: 1.16;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.2;
       margin: 0;
       max-width: 18ch;
     }
@@ -214,7 +215,7 @@ if let name = employee?.account?.name {
 
     .post p {
       color: var(--fg);
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.8;
       margin: 0 0 18px;
       max-width: 72ch;
@@ -222,7 +223,7 @@ if let name = employee?.account?.name {
 
     .post h2 {
       color: var(--fg);
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 500;
       margin: 38px 0 14px;
     }

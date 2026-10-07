@@ -5,7 +5,7 @@ import { posts } from "../data/posts";
 const profile = {
   name: "Harald Bregu",
   handle: "HaraldBregu",
-  mark: "hb",
+  mark: "Harald Bregu",
   location: "Italy",
   locationHref: "https://www.google.com/maps/place/Italia",
   description:
@@ -20,7 +20,7 @@ const profile = {
 
 const kucedr = {
   name: "Kucedr",
-  href: "https://github.com/HaraldBregu/kucedr",
+  href: "https://kucedr.com",
   tagline: "One Desktop Agent. Infinite Personal Tools.",
 };
 
@@ -238,25 +238,22 @@ const services = [
     <header class="site">
       <div class="top">
         <span class="mark"><span class="glyph" aria-hidden="true"></span>{profile.mark}</span>
-        <span class="crumbs">~<span class="sep">/</span>portfolio<span class="sep">/</span>index</span>
+        <span class="crumbs">Software leadership &amp; product engineering</span>
         <span class="top-right">
           <a class="nav-link" href={kucedr.href} {...externalLinkAttrs}>{kucedr.name} <span class="arrow">-&gt;</span></a>
-          <span>v.2026.05</span>
+      <span>Portfolio</span>
         </span>
       </div>
 
       <div class="id-row">
         <div class="id">
-          <h1 class="name">{profile.name.toLowerCase()}<span class="caret" aria-hidden="true"></span></h1>
+          <h1 class="name">{profile.name}</h1>
           <div class="role">
-            <span>senior lead developer</span>
-            <span class="pipe">/</span>
-            <span>desktop, web &amp; mobile</span>
-            <span class="tag">cross-platform</span>
+            <span>Senior Lead Developer</span>
           </div>
           <div class="theme-toggle" role="group" aria-label="Theme">
-            <button data-set-theme="light" aria-pressed="true">light</button>
-            <button data-set-theme="dark" aria-pressed="false">dark</button>
+            <button data-set-theme="light" aria-pressed="true">Light</button>
+            <button data-set-theme="dark" aria-pressed="false">Dark</button>
           </div>
         </div>
 
@@ -287,7 +284,7 @@ const services = [
     </section>
 
     <section id="work">
-      <h2 class="sec-label"><span class="num">02</span><span>activities</span></h2>
+      <h2 class="sec-label"><span class="num">02</span><span>experience</span></h2>
       <div class="rows">
         {
           work.map((item) => (
@@ -317,7 +314,6 @@ const services = [
                 </div>
                 <span class="desc">{service.desc}</span>
               </div>
-              <div class="aside">exp lab 01</div>
             </div>
           ))
         }
@@ -350,9 +346,9 @@ const services = [
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <span class="hint">professional inquiries</span>
         </dd>
-        <dt>github</dt>
+          <dt>GitHub</dt>
         <dd><a href={profile.github} {...externalLinkAttrs}>github.com/HaraldBregu</a></dd>
-        <dt>linkedin</dt>
+          <dt>LinkedIn</dt>
         <dd><a href={profile.linkedin} {...externalLinkAttrs}>linkedin.com/in/haraldbregu</a></dd>
         <dt>x</dt>
         <dd><a href={profile.x} {...externalLinkAttrs}>x.com/HaraldBregu</a></dd>
@@ -365,7 +361,7 @@ const services = [
         <a href={kucedr.href} {...externalLinkAttrs}>kucedr</a>
         <a href="#about">about</a>
         <a href="#skills">skills</a>
-        <a href="#work">activities</a>
+          <a href="#work">experience</a>
         <a href="#services">services</a>
         <a href="/posts/">posts</a>
         <a href="#contact">contact</a>
