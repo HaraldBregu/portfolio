@@ -275,10 +275,21 @@ const services = [
       <p class="muted">{profile.summary}</p>
     </section>
 
-    <section id="skills">
-      <h2 class="sec-label"><span class="num">01</span><span>skills</span></h2>
-      <div class="skill-list" aria-label="Skills">
-        {skills.map((skill) => <span class="skill">{skill}</span>)}
+    <section id="writing">
+      <h2 class="sec-label"><span class="num">01</span><span>posts</span></h2>
+      <div class="rows">
+        {
+          posts.map((post) => (
+            <div class="row blog-row">
+              <div class="when">{post.when}</div>
+              <div class="what">
+                <a class="title" href={post.href}>{post.title}</a>
+                <span class="read">{post.read} · {post.date}</span>
+              </div>
+              <div class="aside">{post.aside}</div>
+            </div>
+          ))
+        }
       </div>
     </section>
 
@@ -319,35 +330,24 @@ const services = [
       </div>
     </section>
 
-    <section id="writing">
-      <h2 class="sec-label"><span class="num">05</span><span>posts</span></h2>
-      <div class="rows">
-        {
-          posts.map((post) => (
-            <div class="row blog-row">
-              <div class="when">{post.when}</div>
-              <div class="what">
-                <a class="title" href={post.href}>{post.title}</a>
-                <span class="read">{post.read} · {post.date}</span>
-              </div>
-              <div class="aside">{post.aside}</div>
-            </div>
-          ))
-        }
+    <section id="skills">
+      <h2 class="sec-label"><span class="num">04</span><span>skills</span></h2>
+      <div class="skill-list" aria-label="Skills">
+        {skills.map((skill) => <span class="skill">{skill}</span>)}
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="sec-label"><span class="num">06</span><span>contact</span></h2>
+      <h2 class="sec-label"><span class="num">05</span><span>contact</span></h2>
       <dl class="contact-grid">
         <dt>email</dt>
         <dd>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <span class="hint">professional inquiries</span>
         </dd>
-          <dt>GitHub</dt>
+        <dt>GitHub</dt>
         <dd><a href={profile.github} {...externalLinkAttrs}>github.com/HaraldBregu</a></dd>
-          <dt>LinkedIn</dt>
+        <dt>LinkedIn</dt>
         <dd><a href={profile.linkedin} {...externalLinkAttrs}>linkedin.com/in/haraldbregu</a></dd>
         <dt>x</dt>
         <dd><a href={profile.x} {...externalLinkAttrs}>x.com/HaraldBregu</a></dd>
