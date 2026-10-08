@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
+import { SITE_URL } from './src/data/site.mjs';
 
 export default defineConfig({
-  site: "https://haraldbregu.com",
+  site: SITE_URL,
+  trailingSlash: "always",
 });

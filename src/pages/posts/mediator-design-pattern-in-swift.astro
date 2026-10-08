@@ -89,10 +89,11 @@ mediator.completeTransaction(seller: seller)`;
 <Layout
   title={`${post.title} | Harald Bregu`}
   description={post.excerpt}
-  url={`https://haraldbregu.com${post.href}`}
   image={`/og/${post.slug}.png`}
   imageAlt={post.title}
   ogType="article"
+  publishedTime={post.isoDate}
+  tags={post.tags}
   structuredData={createArticleSchema(post)}
 >
   <main>

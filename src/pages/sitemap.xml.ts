@@ -1,16 +1,22 @@
 import type { APIRoute } from "astro";
 import { posts } from "../data/posts";
-import { SITE_URL } from "../data/seo";
+import { canonicalUrl, IS_PREVIEW } from "../data/site.mjs";
 
 const urls = [
-  `${SITE_URL}/`,
-  `${SITE_URL}/posts/`,
-  ...posts.map((post) => `${SITE_URL}${post.href}`),
+  canonicalUrl("/"),
+  canonicalUrl("/posts/"),
+  ...posts.map((post) => canonicalUrl(post.href)),
 ];
 
+const escapeXml = (value: string) => value.replace(/[<>&"']/g, (character) => ({
+  "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;",
+})[character]!);
+
 export const GET: APIRoute = () => {
-  const entries = urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n");
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`;
+  // Do not invent lastmod dates: add them only when content revisions are tracked.
+  const entries = (IS_PREVIEW ? [] : [...new Set(urls)])
+    .map((url) => `  <url>\n    <loc>${escapeXml(url)}</loc>\n  </url>`).join("\n");
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
 
   return new Response(sitemap, {
     headers: { "Content-Type": "application/xml; charset=utf-8" },

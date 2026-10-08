@@ -15,10 +15,11 @@ if (!post) {
 <Layout
   title={`${post.title} | Harald Bregu`}
   description={post.excerpt}
-  url={`https://haraldbregu.com${post.href}`}
   image={`/og/${post.slug}.png`}
   imageAlt={post.title}
   ogType="article"
+  publishedTime={post.isoDate}
+  tags={post.tags}
   structuredData={createArticleSchema(post)}
 >
   <main>
@@ -55,7 +56,7 @@ if (!post) {
     </header>
 
     <article class="post">
-      <p class="subtitle">L'Intelligenza Artificiale sostituira gli sviluppatori software?</p>
+      <p class="subtitle" lang="it">L'Intelligenza Artificiale sostituira gli sviluppatori software?</p>
 
       <p>My reasoning is simple:</p>
 

@@ -42,6 +42,36 @@ Preview the production build:
 npm run preview
 ```
 
+## SEO and crawler configuration
+
+`src/data/site.mjs` is the source of truth for the production origin. The layout
+derives each canonical URL from its route, without query strings, and emits
+Open Graph, Twitter, and JSON-LD metadata. Astro and Vercel both use trailing
+slashes for page URLs; crawler files and other assets keep their extensions.
+
+`/robots.txt` and `/sitemap.xml` are generated during the build. The sitemap
+includes the homepage, writing index, and posts in `src/data/posts.ts`. Add
+new public routes to `src/pages/sitemap.xml.ts`. Dates are deliberately omitted
+until genuine content modification dates are tracked; build times are not
+content modification times. The 404 page is noindex and excluded from the sitemap.
+
+Every `npm run build` also runs `npm run check:seo`. This checks generated HTML,
+unique metadata, canonicals, structured data, social image dimensions, local
+links and anchors, crawlability, and exact sitemap coverage. A new page missing
+from the sitemap will fail the build. Run the validator alone against an existing
+build with `npm run check:seo`.
+
+Vercel preview builds (`VERCEL_ENV=preview`) emit noindex on all pages and an
+empty sitemap. Crawling stays enabled so search engines can see the noindex
+directive. To verify this locally, run `VERCEL_ENV=preview npm run build`, then
+run `npm run build` again to restore production output.
+
+After deployment, verify the domain resolves, page URLs return 200, missing
+pages return 404, and slashless page URLs redirect to their canonical form.
+Submit `https://haraldbregu.com/sitemap.xml` in Google Search Console and use URL
+Inspection to check the deployed pages. These external checks require a working
+domain and access to the site's Search Console property.
+
 ## Vercel Deployment
 
 The repository includes `vercel.json` with the Astro build settings:
